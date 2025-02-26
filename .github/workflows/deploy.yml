@@ -23,6 +23,9 @@ concurrency:
   group: "pages"
   cancel-in-progress: false
 
+env:
+  JWT_SECRET: ${{ secrets.JWT_SECRET }}
+
 jobs:
   # Build job
   build:

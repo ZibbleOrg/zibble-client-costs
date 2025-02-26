@@ -3,17 +3,14 @@ import NotionEmbed from "../components/NotionEmbed"
 import untypedConfig from "@/config.json"
 import { verifyJWT } from "../lib/jwt"
 import {redirect} from "next/navigation";
+import configParams from "@/app/lib/configParams";
 
 const config = untypedConfig as { [key: string]: {
     notionEmbedUrl: string
 }}
 
 export async function generateStaticParams() {
-    const clients = Object.keys(config)
-
-    return clients.map((post) => ({
-        slug: post,
-    }))
+    return configParams()
 }
 
 export default async function ClientPage({ params }: { params: Promise<{ slug: string }> }) {

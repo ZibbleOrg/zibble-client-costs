@@ -1,5 +1,10 @@
 import PasswordProtection from "@/app/components/PasswordProtection";
 import { Card, CardContent } from "@/components/ui/card";
+import configParams from "@/app/lib/configParams";
+
+export async function generateStaticParams() {
+    return configParams()
+}
 
 export default async function LoginPage({ params }: { params: Promise<{ slug: string }> }) {
 
